@@ -6,13 +6,13 @@
 	<properties resource="jdbc.properties"></properties>
 
 	<typeAliases>
-		<typeAlias alias="" type="" />
-		<typeAlias alias="" type="" />
+		<typeAlias alias="loginInfo" type="insa.model.LoginInfo" />
+		<typeAlias alias="insaTable" type="insa.model.InsaTable" />
 	</typeAliases>
 	
 	<mappers>
-		<mapper resource="" />
-		<mapper resource="" />
+		<mapper resource="mybatis/LoginInfo.xml" />
+		<mapper resource="mybatis/InsaTable.xml" />
 	</mappers>
 
 </configuration>

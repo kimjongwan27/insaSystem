@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
+<mapper namespace="insaTable">
 
-	<resultMap id="" type="">
-		<result property="" column="" />
-		<result property="" column="" />
-		<result property="" column="" />
+	<resultMap id="InsaTableResult" type="insaTable">
+		<result property="emp_info" column="emp_info" />
+		<result property="name" column="name" />
+		<result property="lang_skill" column="lang_skill" />
+		<result property="grade" column="grade" />
+		<result property="reference" column="reference" />
+		<result property="field_exp" column="field_exp" />
+		<result property="address" column="address" />
+		<result property="phone" column="phone" />
+		<result property="email" column="email" />
+		<result property="degree" column="degree" />
+		<result property="kosa_yn" column="kosa_yn" />
+		<result property="certif_yn" column="certif_yn" />
+		<result property="dob" column="dob" />
+		<result property="search" column="search" />
+		<result property="keyword" column="keyword" />
+		<result property="startRow" column="startRow" />
+		<result property="endRow" column="endRow" />
 	</resultMap>
-	
 	
 </mapper>
