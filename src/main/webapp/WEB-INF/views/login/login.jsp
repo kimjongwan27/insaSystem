@@ -8,7 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="list.do">
+	<c:if test="${not empty success }">
+		<script type="text/javascript">
+			alert("${success}");
+		</script>
+	</c:if>
+	<form action="loginPro.do">
 		<table>
 		<caption><h2>인사시스템</h2></caption>
 		<caption><h3>로그인</h3></caption>

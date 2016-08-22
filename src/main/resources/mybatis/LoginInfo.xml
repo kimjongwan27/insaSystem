@@ -8,5 +8,8 @@
 		<result property="password" column="password" />
 	</resultMap>
 	
+	<select id="login" parameterType="loginInfo" resultType="String">
+		select password from loginInfo where id = #{id}
+	</select>
 	
 </mapper>
