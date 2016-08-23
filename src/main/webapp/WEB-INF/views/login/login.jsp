@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../module/header.jsp" %>
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<title>인사 시스템</title>
 </head>
 <body>
 	<c:if test="${not empty success }">
@@ -13,22 +17,48 @@
 			alert("${success}");
 		</script>
 	</c:if>
-	<form action="loginPro.do">
-		<table>
-		<caption><h2>인사시스템</h2></caption>
-		<caption><h3>로그인</h3></caption>
-			<tr>
-				<th>아이디</th>
-				<td><input type="text" name="id" required="required" placeholder="ID"></td>
-			</tr>
-			<tr>
-				<th>암호</th>
-				<td><input type="password" name="password" required="required" placeholder="Password"></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit" value="로그인"></td>
-			</tr>
-		</table>
-	</form>
+	<div class="container">
+		<form action="loginPro.do">
+			<div class="form-group">
+				<div class="col-md-6 col-md-offset-3">
+					<p class="h2 text-center">인사시스템</p>
+					<p class="h3 text-center">로그인</p>
+				</div>
+				<div class="col-md-6 col-md-offset-3">
+					<label for="exampleInputEmail1">아이디</label>
+					<input type="text" class="form-control" name="id" required="required" placeholder="ID">
+					<br>
+					<label for="exampleInputPassword1">비밀번호</label>
+					<input type="password" class="form-control"  name="password" required="required" placeholder="Password">
+					<br>
+					<input type="submit" value="로그인" class="btn btn-default">
+				</div>
+				
+			</div>
+		</form>
+	</div>
 </body>
+
+	<script>
+		$(document).ready(function(){
+
+		    $("#search").click(function(){
+		    	var text = $("#keytext").val();
+		    	var sel = $("#keyField").val();
+		    	
+		    	if( text.length < 1 || sel == "sel"){
+		    		alert("검색어를 입력해주시거나 검색조건을 선택 바랍니다.");
+		    	} else {
+		    		searchBoard();
+		    	}
+		    });
+		});
+		function searchBoard(){
+			$("#frmKey").attr("method","POST");
+			$("#frmKey").attr("action","list.do");
+			$("#frmKey").submit();			
+	    }
+		
+	</script>
+	
 </html>
