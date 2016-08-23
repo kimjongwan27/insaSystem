@@ -18,7 +18,7 @@
 		</script>
 	</c:if>
 	<div class="container">
-		<form action="loginPro.do">
+		<form name="frmLogin" id="frmLogin">
 			<div class="form-group">
 				<div class="col-md-6 col-md-offset-3">
 					<p class="h2 text-center">인사시스템</p>
@@ -26,12 +26,12 @@
 				</div>
 				<div class="col-md-6 col-md-offset-3">
 					<label for="exampleInputEmail1">아이디</label>
-					<input type="text" class="form-control" name="id" required="required" placeholder="ID">
+					<input type="text" class="form-control" name="loginId" id="loginId"  placeholder="ID">
 					<br>
 					<label for="exampleInputPassword1">비밀번호</label>
-					<input type="password" class="form-control"  name="password" required="required" placeholder="Password">
+					<input type="password" class="form-control" name="loginPw" id="loginPw" placeholder="Password">
 					<br>
-					<input type="submit" value="로그인" class="btn btn-default">
+					<input type="submit" value="로그인" id="loginBtn" class="btn btn-default">
 				</div>
 				
 			</div>
@@ -42,22 +42,12 @@
 	<script>
 		$(document).ready(function(){
 
-		    $("#search").click(function(){
-		    	var text = $("#keytext").val();
-		    	var sel = $("#keyField").val();
-		    	
-		    	if( text.length < 1 || sel == "sel"){
-		    		alert("검색어를 입력해주시거나 검색조건을 선택 바랍니다.");
-		    	} else {
-		    		searchBoard();
-		    	}
+		    $("#loginBtn").click(function(){
+		    	$("#frmLogin").attr("method","POST");
+				$("#frmLogin").attr("action","loginPro.do");
+				$("#frmLogin").submit();
 		    });
 		});
-		function searchBoard(){
-			$("#frmKey").attr("method","POST");
-			$("#frmKey").attr("action","list.do");
-			$("#frmKey").submit();			
-	    }
 		
 	</script>
 	

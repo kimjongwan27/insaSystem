@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import insa.model.LoginInfo;
 import insa.service.InsaService;
@@ -21,12 +22,16 @@ public class AnnJayController {
 		model.addAttribute("success", success);
 		return "login/login";
 	}
-	
-	@RequestMapping("loginPro")
-	public String loginPro(LoginInfo log, HttpSession session){
+	@RequestMapping(value = "loginPro.do")
+	public String loginPro(@RequestParam(required=false) String loginId, 
+							@RequestParam(required=false) String loginPw,
+							LoginInfo log, HttpSession session){
 		String success = "";
-		int loginResult = is.login(log);
+		
+		int loginResult = is.login(loginId, loginPw);
+		
 		System.out.println(loginResult);
+		
 		if(loginResult == 1){
 			session.setAttribute("loginId", log.getId());
 			success = "로그인 되었습니다.";
@@ -38,6 +43,8 @@ public class AnnJayController {
 			return "forward:login.do?success="+success;
 		}
 		return "forward:list.do?success="+success;
+		
+		
 	}
 	
 	@RequestMapping("list")

@@ -12,8 +12,8 @@ public class InsaServiceImpl implements InsaService{
 	@Autowired
 	private InsaDao id;
 	
-	public int login(LoginInfo log) {
-		return id.login(log);
+	public int login(String loginId, String loginPw) {
+		return id.login(loginId, loginPw);
 	}
 
 }

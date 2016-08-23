@@ -4,6 +4,6 @@ import insa.model.LoginInfo;
 
 public interface InsaService {
 
-	int login(LoginInfo log);
+	int login(String loginId, String loginPw);
 
 }
