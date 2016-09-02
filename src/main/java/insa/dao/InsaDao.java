@@ -17,8 +17,6 @@ public class InsaDao {
 	public int login(String loginId, String loginPw) {
 		int result = 8;
 		
-		System.out.println(loginId);
-		
 		if(loginId == null){
 			return -1;
 		}

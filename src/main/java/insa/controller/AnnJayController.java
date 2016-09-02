@@ -30,8 +30,6 @@ public class AnnJayController {
 		
 		int loginResult = is.login(loginId, loginPw);
 		
-		System.out.println(loginResult);
-		
 		if(loginResult == 1){
 			session.setAttribute("loginId", log.getId());
 			success = "로그인 되었습니다.";
